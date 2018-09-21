@@ -325,7 +325,7 @@ if __name__ == '__main__':
         decisionTree = growDecisionTreeFrom(trainingData)
         #decisionTree = growDecisionTreeFrom(trainingData, evaluationFunction=gini) # with gini
         result = plot(decisionTree)
-        print(result)
+        #print(result)
         dot_data = dotgraph(decisionTree)
         graph = pydotplus.graph_from_dot_data(dot_data)
         graph.write_pdf("tbc.pdf")
@@ -343,7 +343,7 @@ if __name__ == '__main__':
         decisionTree = growDecisionTreeFrom(trainingData, evaluationFunction=gini)
         prune(decisionTree, 0.8, notify=True) # notify, when a branch is pruned (one time in this example)
         result = plot(decisionTree)
-        print(result)
+        #print(result)
         dot_data = dotgraph(decisionTree)
         graph = pydotplus.graph_from_dot_data(dot_data)
         graph.write_pdf("iris.pdf")
