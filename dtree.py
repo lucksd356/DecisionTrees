@@ -249,7 +249,9 @@ def dotgraph(decisionTree):
     ]
     i_node = 0
     dcParent = {}
-    for nSplit, lsY in dcNodes.items():
+    lsNodes = range(len(dcNodes))
+    for nSplit in lsNodes:
+        lsY = dcNodes[nSplit]
         for lsX in lsY:
             iSplit, decision, szParent, bBranch, szImpurity, szSamples =lsX
             if type(iSplit) == int:
