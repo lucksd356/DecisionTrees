@@ -197,7 +197,10 @@ def plot(decisionTree):
     """Plots the obtained decision tree. """
     def toString(decisionTree, indent=''):
         if decisionTree.results != None:  # leaf node
-            return str(decisionTree.results)
+            lsX = [(x, y) for x, y in decisionTree.results.items()]
+            lsX.sort()
+            szY = ', '.join(['%s: %s' % (x, y) for x, y in lsX])
+            return szY
         else:
             szCol = 'Column %s' % decisionTree.col
             if szCol in dcHeadings:
@@ -219,10 +222,10 @@ def dotgraph(decisionTree):
     """Plots the obtained decision tree. """
     def toString(iSplit, decisionTree, bBranch, szParent = "null", indent=''):
         if decisionTree.results != None:  # leaf node
-            lsY = []
-            for szX, n in decisionTree.results.items():
-                    lsY.append('%s:%d' % (szX, n))
-            dcY = {"name": "%s" % ', '.join(lsY), "parent" : szParent}
+            lsX = [(x, y) for x, y in decisionTree.results.items()]
+            lsX.sort()
+            szY = ', '.join(['%s: %s' % (x, y) for x, y in lsX])
+            dcY = {"name": szY, "parent" : szParent}
             dcSummary = decisionTree.summary
             dcNodes[iSplit].append(['leaf', dcY['name'], szParent, bBranch, dcSummary['impurity'],
                                     dcSummary['samples']])
