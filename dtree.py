@@ -249,8 +249,7 @@ def dotgraph(decisionTree):
     ]
     i_node = 0
     dcParent = {}
-    lsNodes = range(len(dcNodes))
-    for nSplit in lsNodes:
+    for nSplit in range(len(dcNodes)):
         lsY = dcNodes[nSplit]
         for lsX in lsY:
             iSplit, decision, szParent, bBranch, szImpurity, szSamples =lsX
